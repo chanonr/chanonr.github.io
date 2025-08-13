@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Liars (Inalienable Rights)</title>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<script src="http://code.jquery.com/jquery-2.1.0.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="scriptLiars.js"></script>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Liars (Inalienable Rights)</h1>
+    <form name="form1">
+    <table style="width:30%">
+        <tr>
+            <td>
+                <label for="myBirthDate">My Birthdate:</label>
+            </td>
+            <td>
+                <input id="myBirthDate" name="mybirthdate" type="date" value="1945-07-24">
+            </td>
+            <td>
+                <label for="composers">Composers:</label>
+            </td>
+            <td>
+                <select id="birthDeathDates">
+                    <option value="1685-03-21|1750-07-28">Johann Sebastian Bach</option>
+                    <option value="1770-12-17|1827-03-26">Ludwig van Beethoven</option>
+                    <option value="1803-12-11|1869-03-08">Hector Berlioz</option>
+                    <option value="1838-10-25|1875-06-03">Georges Bizet</option>
+                    <option value="1833-05-07|1897-04-03">Johannes Brahms</option>
+                    <option value="1810-03-01|1849-10-17">Frederic Chopin</option>
+                    <option value="1862-08-22|1918-03-08">Claude Debussy</option>
+                    <option value="1841-09-08|1901-05-01">Antonin Dvorak</option>
+                    <option value="1685-02-23|1759-04-14">Georg Fridric Handel</option>
+                    <option value="1818-06-17|1893-10-18">Charles Gounod</option>
+                    <option value="1843-06-15|1907-09-04">Edvard Grieg</option>
+                    <option value="1756-01-27|1791-12-05">W. A. Mozart</option>
+                    <option value="1819-05-06|1880-10-05">Jaques Offenbach</option>
+                    <option value="1875-03-07|1937-12-28">Maurice Ravel</option>
+                    <option value="1792-02-29|1868-11-13">Gioachino Rossini</option>
+                    <option value="1835-10-09|1921-12-16">Camille Saint-Saens</option>
+                    <option value="1797-01-31|1828-11-19">Franz Schubert</option>
+                    <option value="1813-10-10|1901-01-27">Giuseppe Verdi</option>
+                    <option value="1813-05-22|1883-02-13">Richard Wagner</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="cmpBirthdate">Composer's Birthdate:  </label>
+            </td>
+            <td>
+                <input id="cmpBirthDate" name="cmpbirthdate" type="date">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="cmpDeathdate">Composer's Deathdate:  </label>
+            </td>
+            <td>
+                <input id="cmpDeathDate" name="cmpdeathdate" type="date">
+            </td>
+        </tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr>
+            <td>
+                <label for="product">When this composer was my age, he had been dead for this many years:</label>
+            </td>
+            <td>
+        <input id="deadYears" name="deadyears" type="number">
+            </td>
+        </tr>
+    </table>
+    <br />
+    <INPUT type="button" name="calcdeadyears" value="Calculate Dead Years" onclick="calcDeadYears()">
+    <p></p>
+    <table>
+        <tr>
+            <td><b>State of Mind</b></td>
+            <td>Lie</td>
+            <td>Reckless</td>
+            <td>Negligent</td>
+            <td>Reasonable Mistakes</td>
+        </tr>
+        <tr>
+            <td><b>Magnitude of Harm</b></td>
+            <td>Grave</td>
+            <td>Moderate</td>
+            <td>Minor</td>
+            <td>Nonexistent</td>
+        </tr>
+        <tr>
+            <td><b>Likelihood of Harm</b></td>
+            <td>Certain</td>
+            <td>Probable</td>
+            <td>Improbable</td>
+            <td>Highly Improbable</td>
+        </tr>
+        <tr>
+            <td><b>Timing of Harm</b></td>
+            <td>Iminent</td>
+            <td>Near Future</td>
+            <td>Reasonably Soon</td>
+            <td>Distant Future</td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

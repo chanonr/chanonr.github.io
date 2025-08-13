@@ -1,0 +1,130 @@
+<html>
+
+	<head>
+    
+		<title>The Floating World</title>
+    
+		<link rel='stylesheet' href='../styles.css' type='text/css' />
+
+    <!-- ############################################################################ -->
+    <!-- To use this file on your own system, replace ../../api/timeline-api.js with  -->
+    <!--     http://static.simile.mit.edu/timeline/api-2.3.0/timeline-api.js          -->
+    <!-- (Where 2.3.0 is the current release number.)                                 -->
+    <!--
+		<script src="../../../ajax/api/simile-ajax-api.js?bundle=false" type="text/javascript"></script>
+		<script src="../../api/timeline-api.js?bundle=false" type="text/javascript"></script>
+	-->
+	<script src="../../api/timeline-api.js?bundle=false" type="text/javascript"></script>
+		<script>
+			var tl;        
+			function onLoad() {            
+				var eventSource = new Timeline.DefaultEventSource(0);                        
+				var theme = Timeline.ClassicTheme.create();            
+				theme.event.bubble.width = 320;            
+				theme.event.bubble.height = 220;            
+				theme.ether.backgroundColors[1] = theme.ether.backgroundColors[0];            
+				var d = Timeline.DateTime.parseGregorianDateTime("1794")           
+					var bandInfos = [                
+							Timeline.createBandInfo({                    
+										width:          "20%",                     
+										intervalUnit:   Timeline.DateTime.DECADE,                     
+										intervalPixels: 100,
+                                        eventSource:    eventSource,
+										date:           d,                    
+										showEventText:  false,                   
+										theme:          theme,
+                                        layout:         'overview'
+							}),
+
+							Timeline.createBandInfo({                   
+										width:          "80%",                    
+										intervalUnit:   Timeline.DateTime.YEAR,                     
+										intervalPixels: 200,                    
+										eventSource:    eventSource,                    
+										date:           d,                    
+										theme:          theme                
+							})            
+							];
+            
+							bandInfos[0].etherPainter = new Timeline.YearCountEtherPainter({                
+										startDate:  "Jan 00 1794 00:00:00 GMT",               
+										multiple:   5,                
+										theme:      theme            
+							});
+            
+							bandInfos[0].syncWith = 1;            
+							bandInfos[0].highlight = true;  //false;
+							bandInfos[0].decorators = [                
+								new Timeline.SpanHighlightDecorator({                   
+								    startDate: "Jan 20 1855 00:00:00 GMT",                    
+									endDate:    "Jun 10 1899 00:00:00 GMT",                    
+									startLabel: "birth - January 20, 1855",                    
+									endLabel:   "death - June 10, 1899",                    
+									color:      "#FFC080",                    
+									opacity:    5,                   
+									theme:      theme               
+								})           
+							];           
+            
+							tl = Timeline.create(document.getElementById("tl"), bandInfos, Timeline.HORIZONTAL);           
+							tl.loadXML("floatingWorld.xml", function(xml, url) {               
+								eventSource.loadXML(xml, url);            
+							});       
+						}
+                        
+                        
+			            function centerTimeline(year) {
+			                tl.getBand(0).setCenterVisibleDate(new Date(year, 0, 1));
+			            }
+
+						var resizeTimerID = null;        
+						function onResize() {            
+							if (resizeTimerID == null) {                
+								resizeTimerID = window.setTimeout(function() {                    
+									resizeTimerID = null;                    
+									tl.layout();                
+								}, 500);          
+						}       
+					}    
+
+				</script>	
+	</head>
+
+	<body onload="onLoad();" onresize="onResize();">		
+        <ul id="path">
+			<li><span>The Floating World</span></li>
+		</ul>
+		<div id="body">                
+			<h1>The Floating World</h1>    
+				<p>Sources:        
+				<ul>           
+					<li><a href="https://en.wikipedia.org/wiki/Ukiyo">https://en.wikipedia.org/wiki/Ukiyo</a></li>            
+					<li><a href="https://en.wikipedia.org/wiki/Kabuki">https://en.wikipedia.org/wiki/Kabuki</a></li>        
+				</ul>
+				</p>
+    
+				<p>
+				Timeline version <span id='tl_ver'></span>.
+				</p>
+				
+                <script>Timeline.writeVersion('tl_ver')
+				</script>
+    
+				<div id="tl" class="timeline-default" style="height: 400px;">
+				</div>
+                
+                <div style="width: 100%">
+                    <table style="text-align: center; width: 100%">
+                        <tr>
+                            <td><a href="javascript:centerTimeline(1855);">1855 - Birth</a></td>
+                            <td><a href="javascript:centerTimeline(1879);">1879 - Entered conservatory</a></td>
+                            <td><a href="javascript:centerTimeline(1881);">1881 - Interrupted studies</a></td>
+                            <td><a href="javascript:centerTimeline(1886);">1886 - Le Roi Arthus began</a></td>
+                            <td><a href="javascript:centerTimeline(1896);">1896 - Poeme</a></td>
+                            <td><a href="javascript:centerTimeline(1899);">1899 - Death</a></td>
+                        </tr>
+                    </table>
+                </div>
+		</div>
+	</body>
+</html>

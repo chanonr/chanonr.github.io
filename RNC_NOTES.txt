@@ -1,0 +1,39 @@
+3:09 PM 10/16/2019
+
+No web server? The timeline project includes a small webserver called
+     Jetty (use the timeline_source.zip file)
+     a) install the Java runtime from Sun
+     b) unzip timeline_source.zip to an install directory
+     c) Open a shell or command prompt to the install directory and type:
+  
+     [win32]> run.bat
+    
+     and then point your browser to
+  
+     http://127.0.0.1:9999/timeline/
+
+For some of my examples:
+
+	Note that the timeline api reference should be
+
+		
+
+	http://127.0.0.1:9999/timeline/examples/chausson/chausson.html
+	http://127.0.0.1:9999/timeline/examples/COVID19timeline/COVID19timeline.html
+	http://127.0.0.1:9999/timeline/examples/floatingWorld/floatingWorld.html
+	http://127.0.0.1:9999/timeline/examples/mahler/mahler.html
+	http://127.0.0.1:9999/timeline/examples/bachJS/bachJS.html
+	http://127.0.0.1:9999/timeline/examples/MathematiciansAD/MathematiciansAD.html
+	http://127.0.0.1:9999/timeline/examples/Euler/Euler.html
+	http://127.0.0.1:9999/timeline/examples/religions/religions.html
+	http://127.0.0.1:9999/timeline/examples/egypt/egypt.html
+	http://127.0.0.1:9999/timeline/examples/jfk/jfk.html
+	http://127.0.0.1:9999/timeline/examples/local_example/local_example.html
+	http://127.0.0.1:9999/timeline/examples/test_example/test.html
+	http://127.0.0.1:9999/timeline/examples/test_example2/test_example2.html
+	http://127.0.0.1:9999/timeline/examples/test_example3/test_example3.html
+	http://127.0.0.1:9999/timeline/examples/test_timezones/test_timezones.html
+	http://127.0.0.1:9999/timeline/examples/TheGene/TheGene.html
+	http://127.0.0.1:9999/timeline/examples/Velazquez/Velazquez.html
+
+

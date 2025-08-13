@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<head>
+    <title>Mathematicians Researching Fractals</title>
+
+    <!-- ############################################################################ -->
+    <!-- To use this file on your own system, replace ../../api/timeline-api.js with  -->
+    <!--     http://static.simile.mit.edu/timeline/api-2.3.0/timeline-api.js          -->
+    <!-- (Where 2.3.0 is the current release number.)                                 -->
+    <!-- <script src="../../api/timeline-api.js?bundle=true" type="text/javascript"></script> -->
+
+    <link rel='stylesheet' href='../styles.css' type='text/css' /> <!-- load your css after Timeline's -->
+
+    <!-- The two script blocks below support local (no server) execution -->
+    <!--
+    <script src="../../../ajax/api/simile-ajax-api.js?bundle=false" type="text/javascript"></script>
+    <script src="../../api/timeline-api.js?bundle=false" type="text/javascript"></script>
+    -->
+    <script src="../../api/timeline-api.js?bundle=false" type="text/javascript"></script>
+    <script>
+        var tl;
+        function onLoad() {
+            var eventSource = new Timeline.DefaultEventSource(0);
+
+            // Example of changing the theme from the defaults
+            // The default theme is defined in
+            // http://simile-widgets.googlecode.com/svn/timeline/tags/latest/src/webapp/api/scripts/themes.js
+            var theme = Timeline.ClassicTheme.create();
+            theme.event.bubble.width = 350;
+            theme.event.bubble.height = 300;
+
+            var d = Timeline.DateTime.parseGregorianDateTime("1700")
+            var bandInfos = [
+                Timeline.createBandInfo({
+                    width:          "80%",
+                    intervalUnit:   Timeline.DateTime.DECADE,
+                    intervalPixels: 200,
+                    eventSource:    eventSource,
+                    date:           d,
+                    theme:          theme,
+                    layout:         'original'  // original, overview, detailed
+                }),
+                Timeline.createBandInfo({
+                    width:          "20%",
+                    intervalUnit:   Timeline.DateTime.CENTURY,
+                    intervalPixels: 200,
+                    eventSource:    eventSource,
+                    date:           d,
+                    theme:          theme,
+                    layout:         'overview'  // original, overview, detailed
+                })
+            ];
+            bandInfos[1].syncWith = 0;
+            bandInfos[1].highlight = true;
+            bandInfos[1].decorators = [
+								new Timeline.SpanHighlightDecorator({
+								    startDate: "Apr 15 1707 00:00:00 GMT",
+								    endDate: "Sep 18 1783 00:00:00 GMT",
+								    startLabel: "Euler: born - April 15, 1707",
+								    endLabel: "Euler: died - June 10, 1783",
+								    color: "#FFC080",
+								    opacity: 5,
+								    theme: theme
+								})
+            ];
+            tl = Timeline.create(document.getElementById("tl"), bandInfos, Timeline.HORIZONTAL);
+            // Adding the date to the url stops browser caching of data during testing or if
+            // the data source is a dynamic query...
+            tl.loadJSON("MathematiciansFractals.js?"+ (new Date().getTime()), function(json, url) {
+                eventSource.loadJSON(json, url);
+            });
+        }
+
+        function centerTimeline(year) {
+            tl.getBand(0).setCenterVisibleDate(new Date(year, 0, 1));
+        }
+
+        var resizeTimerID = null;
+        function onResize() {
+            if (resizeTimerID == null) {
+                resizeTimerID = window.setTimeout(function() {
+                    resizeTimerID = null;
+                    tl.layout();
+                }, 500);
+            }
+        }
+    </script>
+
+	<style type="text/css">
+		/* These css rules are used to modify the display of events with classname attribute */
+		/* In a production system, the rules should be in an external css file to enable     */
+		/* shared use and caching                                                            */
+    .special_event {font-variant: small-caps; font-weight: bold;}
+	</style>
+</head>
+<body onload="onLoad();" onresize="onResize();">
+
+<div id="body">
+    <h1>Mathematicians Researching Fractals</h1>
+    <p></p>
+    
+        <div style="width: 100%">
+          <table style="text-align: center; width: 100%">
+              <tr>
+                  <td><a href="javascript:centerTimeline(1596);">Descartes</a></td>
+                  <td><a href="javascript:centerTimeline(1601);">Fermat</a></td>
+                  <td><a href="javascript:centerTimeline(1623);">Pascal</a></td>
+                  <td><a href="javascript:centerTimeline(1643);">Newton</a></td>
+                  <td><a href="javascript:centerTimeline(1646);">Leibniz</a></td>
+                  <td><a href="javascript:centerTimeline(1700);">Daniel Bernoulli</a></td>
+                  <td><a href="javascript:centerTimeline(1707);">Euler</a></td>
+                  <td><a href="javascript:centerTimeline(1736);">Lagrange</a></td>
+                  <td><a href="javascript:centerTimeline(1746);">Monge</a></td>
+                  <td><a href="javascript:centerTimeline(1768);">Fourier</a></td>
+                  <td><a href="javascript:centerTimeline(1768);">Fourier</a></td>
+                  <td><a href="javascript:centerTimeline(1777);">Gauss</a></td>
+                  <td><a href="javascript:centerTimeline(1788);">Poncelet</a></td>
+                  <td><a href="javascript:centerTimeline(1789);">Cauchy</a></td>
+                  <td><a href="javascript:centerTimeline(1792);">Lobachevsky</a></td>
+                  <td><a href="javascript:centerTimeline(1802);">Abel</a></td>
+                  <td><a href="javascript:centerTimeline(1804);">Jacobi</a></td>
+                  <td><a href="javascript:centerTimeline(1805);">Hamilton</a></td>
+                  <td><a href="javascript:centerTimeline(1810);">Kummer</a></td>
+                  <td><a href="javascript:centerTimeline(1811);">Galois</a></td>
+                  <td><a href="javascript:centerTimeline(1814);">Sylvester</a></td>
+                  <td><a href="javascript:centerTimeline(1815);">Weierstrass</a></td>
+                  <td><a href="javascript:centerTimeline(1815);">Boole</a></td>
+                  <td><a href="javascript:centerTimeline(1821);">Cayley</a></td>
+                  <td><a href="javascript:centerTimeline(1823);">Kronecker</a></td>
+                  <td><a href="javascript:centerTimeline(1826);">Riemann</a></td>
+                  <td><a href="javascript:centerTimeline(1831);">Dedekind</a></td>
+                  <td><a href="javascript:centerTimeline(1845);">Cantor</a></td>
+                  <td><a href="javascript:centerTimeline(1854);">Poincare</a></td>
+                  <td><a href="javascript:centerTimeline(1911);">Wheeler</a></td>
+                  <td><a href="javascript:centerTimeline(1924);">Mandelbrot</a></td>
+              </tr>
+          </table>
+      </div>
+
+    
+    <p></p>
+
+    <div id="tl" class="timeline-default" style="height: 600px;"></div>
+    
+    <p>This test uses <a href="MathematiciansFractals.js"> JSON data</a> regarding various mathematicians.</p>
+    <p>It demonstrates use of various event attributes <i>color</i>, <i>textColor</i>, <i>tapeImage</i>, and <i>tapeRepeat</i>. <a href='http://code.google.com/p/simile-widgets/wiki/Timeline_EventSources'>Details</a></p>
+    <p>Test numbers:
+        <ol>
+            <li>Only start date</li>
+            <li>Start and end dates. Combinations of isDuration</li>
+            <li>Red tapes. Events without titles. Start and end dates. Combinations of isDuration</li>
+            <li>Caption and tapeImage attributes. The striped tape. Hover over the label or tape to view the caption.</li>
+            <li>Really long labels. They should not wrap</li>
+            <li>Permutations of bad dates. Test that error messages are shown in all browsers including IE</li>
+            <li>Event has classname attribute. CSS is used to modify the event's display. For event with classname of special_event, use css selectors:
+            <ul><li>.tape-special_event for the tape in a main band</li>
+                <li>.label-special_event for the label</li>
+                <li>.icon-special_event for the icon</li>
+                <li>.highlight-special_event for the highlight div</li>
+                <li>In addition to the above, the elements also have a class of just special_event. So the selector .special_event can be used generically for all of the above elements, depending on your goals.</li>
+                <li>The events in the overview band will have class .small-special_event for the tape or tick.</li>
+            </ul>
+        </ol>
+    Additional features demonstrated:
+    <ul>
+    <li>Default Timeline <i>Theme</i> is modified (see html file source).</li>
+    <li>Modified theme: thicker event tapes and increased track size appropriately to match.</li>
+    <li>Modified theme: Popup bubble dimensions set explicitly.</li>
+    </ul>
+    </p>
+    <p>Timeline version <span id='tl_ver'></span>.</p>
+<script>Timeline.writeVersion('tl_ver')</script>
+    <p>Stripe courtesy of <a href='http://www.stripegenerator.com/'>Stripe Generator</a>
+
+</div>
+</body>
+</html>

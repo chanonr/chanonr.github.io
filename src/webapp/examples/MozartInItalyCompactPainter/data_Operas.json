@@ -1,0 +1,96 @@
+﻿{
+    "dateTimeFormat": "iso8601",
+    "events": [
+        {
+            "title": "Cherevichki (1887, premiere)",
+            "id":    "/en/Cherevichki",
+            "start": "1887-01-31",
+            "icon" : "Cherevichi.jpg", 
+            "description": "Premiere"
+        },
+        {
+            "title": "Eugene Onegin (1879, premiere)",
+            "id":    "/en/Eugene Onegin",
+            "start": "1879-03-29",
+            "end": "1879-03-29",
+            "icon" : "Eugene_Onegin_portrait_by_Pushkin.jpg", 
+            "description": "Premiere",
+            "durationEvent" : true
+        },
+        {
+            "title": "Iolanta (1892, premiere)",
+            "id":    "/en/Iolanta",
+            "start": "1892-12-18",
+            "end": "1892-12-18",
+            "icon" : "dark-red-circle.png", 
+            "description": "Premiere",
+            "durationEvent" : true
+        },
+        {
+            "title": "The Enchantress (1887, premiere)",
+            "id":    "/en/The Enchantress",
+            "start": "1887-11-01",
+            "end": "1887-11-01",
+            "icon" : "The_Enchantress.jpg", 
+            "description": "Premiere",
+            "durationEvent" : true
+        },
+        {
+            "title": "The Maid of Orleans (1881, premiere)",
+            "id":    "/en/The Maid of Orleans",
+            "start": "1881-02-25",
+            "end": "1881-02-25",
+            "description": "Premiere",
+            "icon" : "The_Maid_of_Orleans.jpg", 
+            "durationEvent" : true
+        },
+        {
+            "title": "Mazeppa (1884, premiere)",
+            "id":    "/en/Mazeppa",
+            "start": "1884-02-15",
+            "end": "1884-02-15",
+            "icon" : "Mazeppa.jpg", 
+            "description": "Premiere",
+            "durationEvent" : true
+        },
+        {
+            "title": "The Queen of Spades (1890, premiere)",
+            "id":    "/en/The Queen of Spades",
+            "start": "1890-12-19",
+            "end": "1890-12-19",
+            "icon" : "dark-red-circle.png", 
+            "description": "Premiere",
+            "durationEvent" : true
+        },
+        {
+            "title": "Undina (1869)",
+            "id":    "/en/Undina",
+            "start": "1869-01-01",
+            "end": "1869-12-31",
+            "icon" : "Undine.jpg", 
+            "description": "Never performed",
+            "durationEvent" : true
+        },
+        {
+            "title": "Vakula the Smith (1876)",
+            "id":    "/en/Undina",
+            "start": "1876-12-06",
+            "end": "1876-12-06",
+            "icon" : "Vakula_the_Smith_1st_ed.jpg", 
+            "description": "Premiere",
+            "durationEvent" : true
+        },
+        {
+            "title": "The Voyevoda (1869)",
+            "id":    "/en/The Voyevoda",
+            "start": "1869-02-11",
+            "end": "1869-02-11",
+            "description": "Premiere",
+            "icon" : "voyevoda.jpg", 
+            "durationEvent" : true
+        }
+        
+        
+       
+    ]
+}

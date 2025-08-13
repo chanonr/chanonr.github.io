@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Egyptian Multiplication</title>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<script src="http://code.jquery.com/jquery-2.1.0.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="scriptEM.js"></script>
+</head>
+<body>
+    <h1>Egyptian Multiplication 1</h1>
+    <form name="form1">
+    <table style="width:30%">
+        <tr>
+            <td>
+                <label for="multiplicand">Multiplicand:</label>
+            </td>
+            <td>
+                <input id="multiplicand" name="multiplic" type="number">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="multiplier">Multiplier:  </label>
+            </td>
+            <td>
+                <input id="multiplier" name="multiplie" type="number">
+            </td>
+        </tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr>
+            <td>
+                <label for="product">Product:</label>
+            </td>
+            <td>
+        <input id="product" name="prod" type="number">
+            </td>
+        </tr>
+    </table>
+    <br />
+    <INPUT type="button" name="multiply" value="Multiply" onclick="emMultiply()">
+    </form>
+</body>
+</html>

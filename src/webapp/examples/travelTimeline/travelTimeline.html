@@ -1,0 +1,147 @@
+<html>
+
+	<head>
+    
+		<title>Travel Timeline</title>
+    
+		<link rel='stylesheet' href='../styles.css' type='text/css' />
+
+    <!-- ############################################################################ -->
+    <!-- To use this file on your own system, replace ../../api/timeline-api.js with  -->
+    <!--     http://static.simile.mit.edu/timeline/api-2.3.0/timeline-api.js          -->
+    <!-- (Where 2.3.0 is the current release number.)                                 -->
+    <!--
+		<script src="../../../ajax/api/simile-ajax-api.js?bundle=false" type="text/javascript"></script>
+		<script src="../../api/timeline-api.js?bundle=false" type="text/javascript"></script>
+	-->
+	<script src="../../api/timeline-api.js?bundle=false" type="text/javascript"></script>
+		<script>
+			var tl;        
+			function onLoad() {            
+				var eventSource = new Timeline.DefaultEventSource(0);                        
+				var theme = Timeline.ClassicTheme.create();            
+				theme.event.bubble.width = 320;            
+				theme.event.bubble.height = 220;            
+				theme.ether.backgroundColors[1] = theme.ether.backgroundColors[0];            
+				var d = Timeline.DateTime.parseGregorianDateTime("2015")           
+					var bandInfos = [                
+							Timeline.createBandInfo({                    
+										width:          "20%",                     
+										intervalUnit:   Timeline.DateTime.DECADE,                     
+										intervalPixels: 600,
+                                        eventSource:    eventSource,
+										date:           d,                    
+										showEventText:  false,                   
+										theme:          theme,
+                                        layout:         'overview'
+							}),
+
+							Timeline.createBandInfo({                   
+										width:          "80%",                    
+										intervalUnit:   Timeline.DateTime.YEAR,                     
+										intervalPixels: 800,                    
+										eventSource:    eventSource,                    
+										date:           d,                    
+										theme:          theme                
+							})            
+							];
+            
+							bandInfos[0].etherPainter = new Timeline.YearCountEtherPainter({                
+										startDate:  "Jan 1 2000 00:00:00 GMT",               
+										multiple:   5,                
+										theme:      theme            
+							});
+            
+							bandInfos[0].syncWith = 1;            
+							bandInfos[0].highlight = true;  //false;
+							bandInfos[0].decorators = [                
+								new Timeline.SpanHighlightDecorator({                   
+								    startDate: "Jan 01 2000 00:00:00 GMT",                    
+									endDate:    "Jan 01 2045 00:00:00 GMT",                    
+									startLabel: "2000",                    
+									endLabel:   "Present",                    
+									color:      "#FFC080",                    
+									opacity:    5,                   
+									theme:      theme               
+								})           
+							];           
+            
+							tl = Timeline.create(document.getElementById("tl"), bandInfos, Timeline.HORIZONTAL);           
+							tl.loadXML("travelTimeline.xml", function(xml, url) {               
+								eventSource.loadXML(xml, url);            
+							});       
+						}
+                        
+                        
+			            function centerTimeline(year) {
+			                tl.getBand(0).setCenterVisibleDate(new Date(year, 0, 1));
+			            }
+
+						var resizeTimerID = null;        
+						function onResize() {            
+							if (resizeTimerID == null) {                
+								resizeTimerID = window.setTimeout(function() {                    
+									resizeTimerID = null;                    
+									tl.layout();                
+								}, 500);          
+						}       
+					}    
+
+				</script>	
+	</head>
+
+	<body onload="onLoad();" onresize="onResize();">		
+        <ul id="path">
+			<li><span>Travel Timeline</span></li>
+		</ul>
+		<div id="body">                
+			<h1>Travel Timeline</h1>    
+				<p>Sources:        
+				<ul>           
+					<li><a href="https://en.wikipedia.org/wiki/Opera">https://en.wikipedia.org/wiki/Opera</a></li>                  
+				</ul>
+				</p>
+    
+				<p>
+				Timeline version <span id='tl_ver'></span>.
+				</p>
+				
+                <script>Timeline.writeVersion('tl_ver')
+				</script>
+    
+				<div id="tl" class="timeline-default" style="height: 400px;">
+				</div>
+                
+                <div style="width: 100%">
+                    <table style="text-align: center; width: 100%">
+                        <tr>
+							<td><a href="javascript:centerTimeline(2005);">2005 - Dean Dalton: Northern Italy</a></td>
+							<td><a href="javascript:centerTimeline(2005);">2005 - Agra Taj Mahal 10/2/2005</a></td>
+							<td><a href="javascript:centerTimeline(2006);">2006 - Paris</a></td>
+							<td><a href="javascript:centerTimeline(2007);">2007 - Dean Dalton: Munich Salzburg</a></td>
+							<td><a href="javascript:centerTimeline(2007);">2007 - Las Vegas 1/18-19</a></td>
+							<td><a href="javascript:centerTimeline(2007);">2007 - Hawaii 2/4-7</a></td>
+							
+							<td><a href="javascript:centerTimeline(2007);">2009 - Dean Dalton: Trieste, Istria, Vienna, Prague (2009)</a></td>
+                            <td><a href="javascript:centerTimeline(2013);">2013 - Dean Dalton: Wagner / Verdi</a></td>
+                            <td><a href="javascript:centerTimeline(2014);">2014 - Road Scholar: Nepal / India</a></td>
+                            <td><a href="javascript:centerTimeline(2015);">2015 - Dean Dalton: France</a></td>
+							<td><a href="javascript:centerTimeline(2016);">2016 - Road Scholar: Machu Picchu / Peru</a></td>
+                            <td><a href="javascript:centerTimeline(2017);">2017 - RS World Cruise</a></td>
+							<td><a href="javascript:centerTimeline(2019);">2019 - RS Costa Rica</a></td>
+							<td><a href="javascript:centerTimeline(2020);">2020 - RS Egypt</a></td>
+							<td><a href="javascript:centerTimeline(2021);">2021 - EF Go Ahead - Iceland</a></td>
+							<td><a href="javascript:centerTimeline(2021);">2021 - Dean Dalton - Romania</a></td>
+							<td><a href="javascript:centerTimeline(2021);">2021 - Dean Dalton - Poland</a></td>
+							<td><a href="javascript:centerTimeline(2022);">2022 - Dean Dalton - Spain</a></td>
+							<td><a href="javascript:centerTimeline(2022);">2022 - Dean Dalton - Dalmatian Coast</a></td>
+							<td><a href="javascript:centerTimeline(2022);">2022 - Dean Dalton - Switzerland</a></td>
+							<td><a href="javascript:centerTimeline(2022);">2022 - EF Go Ahead - Patagonia</a></td>
+							<td><a href="javascript:centerTimeline(2023);">2023 - Dean Dalton - Vienna and Budapest</a></td>
+							<td><a href="javascript:centerTimeline(2024);">2024 - Dean Dalton - Egypt and Jordan</a></td>
+						</tr>
+                    </table>
+                </div>
+		</div>
+	</body>
+</html>
